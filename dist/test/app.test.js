@@ -17,7 +17,8 @@ const app_1 = __importDefault(require("../app"));
 describe("check api", () => {
     it('working on', () => __awaiter(void 0, void 0, void 0, function* () {
         const result = yield (0, supertest_1.default)(app_1.default).get('/');
-        // expect(result.statusCode).toEqual(200)
-        console.log(result.body);
+        expect(result.statusCode).toBe(200);
+        expect(result.body).toHaveProperty('message');
+        expect(result.body).toEqual({ message: "User is Created" });
     }));
 });
